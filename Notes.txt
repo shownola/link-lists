@@ -1,0 +1,42 @@
+LINEAR DATA STRUCTURES:
+Linked Lists, Stacks and Queues
+Think of linked lists as Nodes.
+Data: contains the data for the node, examples - Integers, String, other objects.
+Pointer: points to next node in the list
+SINGLY LINKED LIST:
+Head:                                          Tail(optional)
+10|next --> 2|next --> 5|next --> 16|next --> 12|next |
+                                                      v
+There is no indexing in the linked list.
+Variations:
+Doubly linked list: arrows point in both directions. Except Head and Tail point down to None.
+
+Singly Linked List: to build you create an empty linked list object.  You would have a head and tail points to None.
+To add an item: Convert to a node if not a node already.
+
+ADD OPERATION:
+- O(1) if you keep track of tail Node
+- O(n) if you don't keep track of tail, since you have to iterate through all nodes to find last node (next pointer points to None for last node).
+- O(1) if you add to front (left) of the list since you always keep track of head node. It will take O(1) since we can make the Head point to this new node directly
+
+REMOVE OPERATION:
+- O(1) if you remove from Head
+- O(n) if you remove from right (end of list)
+
+Make head point to current.next then set the current node's next to point to none. This way this current node is just sitting out there in memory with no reference to it waiting for the garbage collector to pick up.
+If you add from the tail then you would need to know what the previous node is
+
+REMOVE FROM TAIL/end
+- O(n) - iterate through list till you are in the node prior to the tail or last node (current_node.next == tail) , set current_node.next = None and set tail to point to current node.
+- O(n) - if you don't track tail, keep track of previous node and current node as you iterate through the list, when you get to current_node.next == None (last node), set previous node.next = None
+
+Additional notes on linked lists:
+- There's no random access, ie you can't jump to the nth element if you choose to unlike an array - This is because of no indexing
+- Most operations, except for ones that take place with head or tail nodes of the list, are sequential
+- Since there is no predetermined or default size in a list, there is no pre-allocation of memory, and each node can be created and added as necessary.
+- Elementary data structure - important to know for technical interviews, specially recursively reversing a linked list
+
+You can perform a search function faster in a hash map than a linked list because hash search is O(1) and linked list search is O(n)
+
+Hash map is O(1)
+Bisection search is O(log(n))
